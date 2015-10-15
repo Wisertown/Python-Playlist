@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Playlist</title>
+	 <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div>
+		<h4 class="col-md-6 col-md-offset-2">playlist</h4>
+		
+		<div class="col-md-8 col-md-offset-2">
+			<table border="1" class="table">
+				<thead>
+	              <tr>
+	                <th>Artist</th>
+	                <th>Title</th>
+	                <th>Times addded</th>
+	              </tr>
+	            </thead>
+	            <tbody>
+		        {%for classes in play %}
+		        <tr><td>{{classes['artist']}}</td><td>{{classes['title']}}</td><td>{{classes['total']}}</td></tr>
+		        {%endfor%}
+		        </tbody>
+		    </table>
+		</div>
+		<div class="col-md-8 col-md-offset-2">	    
+			<a href="/show">Return to the Dashboard</a>
+		</div>
+	</div>
+	<script src="js/bootstrap.min.js"></script>
+	
+</body>
+</html>

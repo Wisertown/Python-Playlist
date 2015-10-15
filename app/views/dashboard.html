@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+    p {color: green;}
+
+    .song_adder {
+        display: inline-block;
+        margin-left: 125px;
+        
+    }
+
+    .logout {
+        margin-left: 600px;
+        font-size: large;
+    }
+      
+    </style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+   
+  </head>
+<body>
+    <div class="wrapper">
+        <div class="col-md-6 col-md-offset-2">
+            <h1>Success! Welcome, {{session['first_name']}}</h1>
+            <a class="logout" href="/logout">Log Out</a>
+
+            <br>
+            <br>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for msg in messages %}
+                    <p>{{ msg }}</p>
+                {% endfor %}    
+            {% endif %}
+        {% endwith %}
+                       <form action="/user_playlist"></form>
+            <h3>All the songs in our Hub!</h3>
+            
+            <div class="col-md-8 col-md-offset-2">
+                <table border="1" class="table">
+                    <thead>
+                      <tr>
+                        <th>Artist</th>
+                        <th>Title</th>
+                        <th># of times added</th>
+                        <th>add to playlist</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {%for classes in songs %}
+                        <tr><td><strong>{{classes['artist']}}</a></strong></td><td><a href="/show_song_info/{{classes['id']}}">{{classes['title']}}</td><td>{{classes['count']}}</td><td><form action="/add_to_list/{{classes['id']}}" method="post"><input type="submit" value="add" class="btn btn-primary btn-md"></form></td></tr> 
+                        {%endfor%}
+                    </tbody>
+               </table>
+            </div>
+            <div class="song_adder">
+                <h4>add a song to the our database!</h4>
+                <div "col-md-4 col-md-offset-2">
+                    <form action="/songs/songs" method="post" role="form">
+                        <label for="title">title</label>
+                        <input type="text" name="title">
+                        <label for="artist">artist</label>
+                        <input type="text" name="artist">
+                        <label for="submit">Add a song</label>
+                        <input type="submit" class="btn btn-primary">
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
+                      
