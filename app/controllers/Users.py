@@ -8,7 +8,7 @@ import time
 from time import mktime
 from datetime import datetime
 EMAIL_REGEX = re.compile(r'^[a-za-z0-9\.\+_-]+@[a-za-z0-9\._-]+\.[a-za-z]*$')
-# app.secret_key = "the secret way to do stuff"
+
 
 class Users(Controller):
     def __init__(self, action):

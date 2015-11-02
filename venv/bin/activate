@@ -39,7 +39,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/Users/Aaron/Desktop/Pylot-PythonRed/venv"
+VIRTUAL_ENV="/Users/Aaron/Desktop/completed_Pylot/Python-Playlist/venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
